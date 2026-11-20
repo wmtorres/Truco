@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark_green">
+
+    <!-- ==================== BARRA SUPERIOR (HEADER) ==================== -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerHistoryLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#33000000"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/btnHistoryBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_input_field_dark"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="Voltar"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/gold_primary" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvHistoryTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:letterSpacing="0.03"
+            android:lineSpacingExtra="-2dp"
+            android:text="HISTÓRICO DE\nPARTIDAS"
+            android:textColor="@color/gold_primary"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/llGeneralScoreBadge"
+            app:layout_constraintStart_toEndOf="@id/btnHistoryBack"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvHistorySubtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:drawablePadding="6dp"
+            android:text="Desde o último reinício"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp"
+            app:drawableStartCompat="@drawable/ic_dot_gold"
+            app:layout_constraintEnd_toStartOf="@id/llGeneralScoreBadge"
+            app:layout_constraintStart_toEndOf="@id/btnHistoryBack"
+            app:layout_constraintTop_toBottomOf="@id/tvHistoryTitle" />
+
+        <!-- Pílula PLACAR GERAL -->
+        <LinearLayout
+            android:id="@+id/llGeneralScoreBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_pill_gold_outline"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_medal"
+                app:tint="@color/gold_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:gravity="center"
+                android:text="PLACAR\nGERAL"
+                android:textColor="@color/gold_primary"
+                android:textSize="9.5sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ==================== TOTAL DE PARTIDAS DISPUTADAS ==================== -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardTotalMatches"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_card_duel_dark"
+        android:paddingHorizontal="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerHistoryLayout">
+
+        <ImageView
+            android:id="@+id/ivTrophyTotal"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_trophy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gold_primary" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="TOTAL DE PARTIDAS DISPUTADAS"
+            android:textColor="@color/white"
+            android:textSize="11.5sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvTotalMatchesCount"
+            app:layout_constraintStart_toEndOf="@id/ivTrophyTotal"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTotalMatchesCount"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_diff_medium_selected"
+            android:gravity="center"
+            android:minWidth="44dp"
+            android:paddingHorizontal="10dp"
+            android:text="06"
+            android:textColor="@color/gold_bright"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ==================== PAINEL PRINCIPAL: VITÓRIAS POR JOGADOR ==================== -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardWinsByPlayer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_panel_wins_green"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardTotalMatches">
+
+        <!-- Cantoneiras Douradas Decorativas -->
+        <View
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/bg_corner_top_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/bg_corner_top_right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvWinsHeaderLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:letterSpacing="0.06"
+            android:text="VITÓRIAS POR JOGADOR"
+            android:textColor="@color/gold_primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/dividerWinsHeader"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="#26E5B84B"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWinsHeaderLabel" />
+
+        <!-- ==================== COLUNA ESQUERDA: LÍDER ==================== -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardLeaderBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_box_leader_gold"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="16dp"
+            app:layout_constraintEnd_toStartOf="@id/cardChallengerBox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dividerWinsHeader">
+
+            <TextView
+                android:id="@+id/tvLeaderTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:text="LÍDER"
+                android:textColor="#80CBC4"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_medal"
+                app:drawableTint="@color/gold_primary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvLeaderName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawablePadding="5dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Gaudério Silva"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_profile_circle"
+                app:drawableTint="@color/gold_primary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLeaderTitle" />
+
+            <TextView
+                android:id="@+id/tvLeaderWinsCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:includeFontPadding="false"
+                android:text="04"
+                android:textColor="@color/gold_primary"
+                android:textSize="44sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLeaderName" />
+
+            <TextView
+                android:id="@+id/tvLeaderWinsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="PARTIDAS GANHAS"
+                android:textColor="@color/text_gray"
+                android:textSize="9.5sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLeaderWinsCount" />
+
+            <TextView
+                android:id="@+id/tvLeaderWinRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_tag_green"
+                android:gravity="center"
+                android:paddingVertical="5dp"
+                android:text="67% de Vitórias"
+                android:textColor="#80CBC4"
+                android:textSize="10.5sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLeaderWinsLabel" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- ==================== COLUNA DIREITA: DESAFIANTE ==================== -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardChallengerBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_box_challenger_dark"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cardLeaderBox"
+            app:layout_constraintTop_toBottomOf="@id/dividerWinsHeader">
+
+            <TextView
+                android:id="@+id/tvChallengerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:text="DESAFIANTE"
+                android:textColor="@color/text_gray"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_swords"
+                app:drawableTint="@color/text_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvChallengerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawablePadding="5dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Marreco"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_profile_circle"
+                app:drawableTint="@color/text_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvChallengerTitle" />
+
+            <TextView
+                android:id="@+id/tvChallengerWinsCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:includeFontPadding="false"
+                android:text="02"
+                android:textColor="@color/white"
+                android:textSize="44sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvChallengerName" />
+
+            <TextView
+                android:id="@+id/tvChallengerWinsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="PARTIDAS GANHAS"
+                android:textColor="@color/text_gray"
+                android:textSize="9.5sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvChallengerWinsCount" />
+
+            <TextView
+                android:id="@+id/tvChallengerWinRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_tag_gray_dark"
+                android:gravity="center"
+                android:paddingVertical="5dp"
+                android:text="33% de Vitórias"
+                android:textColor="@color/text_gray"
+                android:textSize="10.5sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvChallengerWinsLabel" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- ==================== VANTAGEM DO LÍDER (BARRA DE PROGRESSO) ==================== -->
+        <TextView
+            android:id="@+id/tvLeaderAdvantageLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Vantagem do Líder"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardLeaderBox" />
+
+        <TextView
+            android:id="@+id/tvLeaderAdvantageValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+2 vitórias"
+            android:textColor="@color/gold_primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvLeaderAdvantageLabel"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/pbLeaderAdvantage"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:max="100"
+            android:progress="67"
+            android:progressDrawable="@drawable/progress_advantage_gold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLeaderAdvantageLabel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ==================== NOTA INFORMATIVA ==================== -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardInfoNote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_card_duel_dark"
+        android:padding="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardWinsByPlayer">
+
+        <ImageView
+            android:id="@+id/ivInfoIcon"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/bg_diff_medium_selected"
+            android:padding="7dp"
+            android:src="@drawable/ic_info_outline"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gold_primary" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:lineSpacingExtra="2dp"
+            android:text="Este histórico computa todas as partidas completas (até 12 tentos) desde a última limpeza da súmula."
+            android:textColor="@color/text_gray"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivInfoIcon"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ==================== BOTÕES DE AÇÃO NO RODAPÉ ==================== -->
+
+    <LinearLayout
+        android:id="@+id/btnClearHistory"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_card_duel_dark"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_refresh"
+            app:tint="#EF9A9A" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="VOLTAR AO JOGO"
+            android:textColor="#EF9A9A"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

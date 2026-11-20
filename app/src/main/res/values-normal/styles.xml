@@ -1,0 +1,8 @@
+<resources>
+    <style name="CustomBottomNavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">#26E5B84B</item>
+        <item name="android:width">64dp</item>
+        <item name="android:height">48dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Medium</item>
+    </style>
+</resources>

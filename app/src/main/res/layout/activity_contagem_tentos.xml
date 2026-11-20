@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main_gradient">
+
+    <!-- ==================== BARRA SUPERIOR (HEADER) ==================== -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerScoreLayout"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="#33000000"
+        android:paddingHorizontal="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnScoreProfile"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/bg_icon_box_green"
+            android:contentDescription="Perfil"
+            android:padding="6dp"
+            android:src="@drawable/ic_profile_circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#80CBC4" />
+
+        <TextView
+            android:id="@+id/tvTableNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="MESA #01"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnScoreProfile"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/llGoalPill"
+            app:layout_constraintStart_toEndOf="@id/tvTableNumber"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TRUCO "
+                android:textColor="@color/gold_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BRASIL"
+                android:textColor="#80CBC4"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llGoalPill"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:background="@drawable/bg_pill_gold_outline"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:src="@drawable/ic_coins"
+                app:tint="@color/gold_primary" />
+
+            <TextView
+                android:id="@+id/tvGoalHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="12 TENTOS"
+                android:textColor="@color/gold_bright"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ==================== CARTÃO JOGADOR 1 ==================== -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardPlayer1Score"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="14dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_card_duel_dark"
+        android:padding="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerScoreLayout">
+
+        <!-- Badge J1 -->
+        <TextView
+            android:id="@+id/tvBadgeJ1"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_circle_j1"
+            android:gravity="center"
+            android:text="J1"
+            android:textColor="#80CBC4"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPlayer1NameScore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="6dp"
+            android:text="Jogador 1: Gaudério"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/tvTagNoPe"
+            app:layout_constraintStart_toEndOf="@id/tvBadgeJ1"
+            app:layout_constraintTop_toTopOf="@id/tvBadgeJ1" />
+
+        <TextView
+            android:id="@+id/tvPlayer1Quedas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Eles • 2 quedas vencidas"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp"
+            app:layout_constraintStart_toEndOf="@id/tvBadgeJ1"
+            app:layout_constraintTop_toBottomOf="@id/tvPlayer1NameScore" />
+
+        <!-- Tag NO PÉ -->
+        <TextView
+            android:id="@+id/tvTagNoPe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_diff_medium_selected"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"
+            android:text="NO PÉ"
+            android:textColor="@color/gold_primary"
+            android:textSize="9sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/tvScoreP1"
+            app:layout_constraintTop_toTopOf="@id/tvBadgeJ1" />
+
+        <!-- Placar 04 /12 TENTOS -->
+        <TextView
+            android:id="@+id/tvScoreP1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="00"
+            android:textColor="@color/gold_primary"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/tvScoreMaxP1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvScoreMaxP1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="/12"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvScoreP1"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TENTOS"
+            android:textColor="@color/text_gray"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvScoreP1" />
+
+        <!-- Barra Segmentada de 12 Tentos (Jogador 1) -->
+        <LinearLayout
+            android:id="@+id/llProgressSegmentsP1"
+            android:layout_width="0dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_input_field_dark"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPlayer1Quedas">
+
+            <View android:id="@+id/segP1_1" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_active" />
+            <View android:id="@+id/segP1_2" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_active" />
+            <View android:id="@+id/segP1_3" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_active" />
+            <View android:id="@+id/segP1_4" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_active" />
+            <View android:id="@+id/segP1_5" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP1_6" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP1_7" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP1_8" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP1_9" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP1_10" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP1_11" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP1_12" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+        </LinearLayout>
+
+        <!-- Botões de Pontuação (+1, +3, +6, +9, +12) - Jogador 1 -->
+        <LinearLayout
+            android:id="@+id/llScoreButtonsP1"
+            android:layout_width="0dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llProgressSegmentsP1">
+
+            <LinearLayout
+                android:id="@+id/btnP1Add1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_tento_gold"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+1"
+                    android:textColor="@color/bg_dark_green"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PONTO"
+                    android:textColor="@color/bg_dark_green"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnP1Add3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_tento_gold"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+3" android:textColor="@color/bg_dark_green" android:textSize="15sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TRUCO!" android:textColor="@color/bg_dark_green" android:textSize="8sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnP1Add6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_tento_gold"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+6" android:textColor="@color/bg_dark_green" android:textSize="15sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SEIS!" android:textColor="@color/bg_dark_green" android:textSize="8sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnP1Add9"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_tento_gold"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+9" android:textColor="@color/bg_dark_green" android:textSize="15sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="NOVE!" android:textColor="@color/bg_dark_green" android:textSize="8sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnP1Add12"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_tento_gold"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+12" android:textColor="@color/bg_dark_green" android:textSize="15sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="QUEDA" android:textColor="@color/bg_dark_green" android:textSize="8sp" android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Descontar 1 tento -->
+        <TextView
+            android:id="@+id/btnP1Minus1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="5dp"
+            android:paddingVertical="2dp"
+            android:text="Descontar 1 tento"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp"
+            app:drawableStartCompat="@drawable/ic_remove_circle"
+            app:drawableTint="@color/text_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llScoreButtonsP1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ==================== FAIXA CENTRAL: MÃO DE 11 ==================== -->
+    <TextView
+        android:id="@+id/tvHandOf11Banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_pill_gold_outline"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="5dp"
+        android:text="●   MÃO DE 11 PERMITE GRITO   ●"
+        android:textColor="@color/gold_primary"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardPlayer1Score" />
+
+    <!-- ==================== CARTÃO JOGADOR 2 ==================== -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardPlayer2Score"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="14dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_card_duel_dark"
+        android:padding="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHandOf11Banner">
+
+        <!-- Badge J2 -->
+        <TextView
+            android:id="@+id/tvBadgeJ2"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_emblem_unselected"
+            android:gravity="center"
+            android:text="J2"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPlayer2NameScore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="6dp"
+            android:text="Jogador 2:\nMarreco"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/tvTagNaMao"
+            app:layout_constraintStart_toEndOf="@id/tvBadgeJ2"
+            app:layout_constraintTop_toTopOf="@id/tvBadgeJ2" />
+
+        <TextView
+            android:id="@+id/tvPlayer2Quedas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:text="Nós • 1 queda vencida"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp"
+            app:layout_constraintStart_toEndOf="@id/tvBadgeJ2"
+            app:layout_constraintTop_toBottomOf="@id/tvPlayer2NameScore" />
+
+        <!-- Tag NA MÃO -->
+        <TextView
+            android:id="@+id/tvTagNaMao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_tag_green"
+            android:gravity="center"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="3dp"
+            android:text="NA\nMÃO"
+            android:textColor="#80CBC4"
+            android:textSize="8.5sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/tvScoreP2"
+            app:layout_constraintTop_toTopOf="@id/tvBadgeJ2" />
+
+        <!-- Placar 02 /12 TENTOS -->
+        <TextView
+            android:id="@+id/tvScoreP2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="00"
+            android:textColor="@color/gold_primary"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/tvScoreMaxP2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvScoreMaxP2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="/12"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvScoreP2"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TENTOS"
+            android:textColor="@color/text_gray"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvScoreP2" />
+
+        <!-- Barra Segmentada de 12 Tentos (Jogador 2) -->
+        <LinearLayout
+            android:id="@+id/llProgressSegmentsP2"
+            android:layout_width="0dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_input_field_dark"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPlayer2Quedas">
+
+            <View android:id="@+id/segP2_1" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_active" />
+            <View android:id="@+id/segP2_2" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_active" />
+            <View android:id="@+id/segP2_3" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP2_4" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP2_5" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP2_6" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP2_7" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP2_8" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP2_9" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP2_10" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP2_11" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+            <View android:id="@+id/segP2_12" android:layout_width="0dp" android:layout_height="6dp" android:layout_marginHorizontal="1.5dp" android:layout_weight="1" android:background="@drawable/bg_segment_inactive" />
+        </LinearLayout>
+
+        <!-- Botões de Pontuação (+1, +3, +6, +9, +12) - Jogador 2 -->
+        <LinearLayout
+            android:id="@+id/llScoreButtonsP2"
+            android:layout_width="0dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llProgressSegmentsP2">
+
+            <LinearLayout
+                android:id="@+id/btnP2Add1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_tento_gold"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+1" android:textColor="@color/bg_dark_green" android:textSize="15sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PONTO" android:textColor="@color/bg_dark_green" android:textSize="8sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnP2Add3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_tento_gold"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+3" android:textColor="@color/bg_dark_green" android:textSize="15sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TRUCO!" android:textColor="@color/bg_dark_green" android:textSize="8sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnP2Add6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_tento_gold"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+6" android:textColor="@color/bg_dark_green" android:textSize="15sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SEIS!" android:textColor="@color/bg_dark_green" android:textSize="8sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnP2Add9"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_tento_gold"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+9" android:textColor="@color/bg_dark_green" android:textSize="15sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="NOVE!" android:textColor="@color/bg_dark_green" android:textSize="8sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnP2Add12"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_tento_gold"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+12" android:textColor="@color/bg_dark_green" android:textSize="15sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="QUEDA" android:textColor="@color/bg_dark_green" android:textSize="8sp" android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Descontar 1 tento -->
+        <TextView
+            android:id="@+id/btnP2Minus1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="5dp"
+            android:paddingVertical="2dp"
+            android:text="Descontar 1 tento"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp"
+            app:drawableStartCompat="@drawable/ic_remove_circle"
+            app:drawableTint="@color/text_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llScoreButtonsP2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ==================== 3 BOTÕES DE AÇÃO INFERIORES ==================== -->
+    <LinearLayout
+        android:id="@+id/llActionButtonsBottom"
+        android:layout_width="0dp"
+        android:layout_height="68dp"
+        android:layout_marginHorizontal="14dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationScore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardPlayer2Score">
+
+        <!-- Hist. de Jogadas -->
+        <LinearLayout
+            android:id="@+id/btnHistoryPlays"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_card_duel_dark"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="4dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_history"
+                app:tint="@color/gold_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Hist. de Jogadas"
+                android:textColor="@color/white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Zerar Histórico -->
+        <LinearLayout
+            android:id="@+id/btnResetHistory"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_card_duel_dark"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="4dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_refresh"
+                app:tint="#EF9A9A" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Zerar Histórico"
+                android:textColor="@color/white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Inf. Nomes -->
+        <LinearLayout
+            android:id="@+id/btnEditNames"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_card_duel_dark"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="4dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_badge_id"
+                app:tint="#80CBC4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Inf. Nomes"
+                android:textColor="@color/white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ==================== NAVEGAÇÃO INFERIOR ==================== -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationScore"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_bottom_nav"
+        android:minHeight="76dp"
+        app:itemIconSize="22dp"
+        app:itemIconTint="@color/selector_bottom_nav"
+        app:itemPaddingBottom="10dp"
+        app:itemPaddingTop="10dp"
+        app:itemTextColor="@color/selector_bottom_nav"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

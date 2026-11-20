@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main_gradient"
+    tools:ignore="HardcodedText,ContentDescription,SpUsage,Autofill,SmallSp">
+
+    <!-- ==================== BARRA SUPERIOR (HEADER) ==================== -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerDuelLayout"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="#33000000"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Voltar"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#80CBC4" />
+
+        <TextView
+            android:id="@+id/tvHeaderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.04"
+            android:text="TRUCO BRASIL"
+            android:textColor="@color/gold_primary"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tvHeaderSubtitle"
+            app:layout_constraintEnd_toStartOf="@id/llDuelCoins"
+            app:layout_constraintStart_toEndOf="@id/btnBack"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tvHeaderSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.03"
+            android:text="MESA 1 VS 1 • MANO A MANO"
+            android:textColor="@color/text_gray"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/llDuelCoins"
+            app:layout_constraintStart_toEndOf="@id/btnBack"
+            app:layout_constraintTop_toBottomOf="@id/tvHeaderTitle" />
+
+        <LinearLayout
+            android:id="@+id/llDuelCoins"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/bg_pill_gold_outline"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_coins"
+                app:tint="@color/gold_primary" />
+
+            <TextView
+                android:id="@+id/tvDuelCoinsBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="2.450"
+                android:textColor="@color/gold_bright"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ==================== CARTÃO CENTRAL: CONFIGURAR DUELO ==================== -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardDuelSetup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_card_duel_dark"
+        android:padding="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerDuelLayout">
+
+        <!-- Cabeçalho do Card (Espadas + Título + Tag Paulista) -->
+        <ImageView
+            android:id="@+id/ivSwordsIcon"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_icon_box_green"
+            android:padding="8dp"
+            android:src="@drawable/ic_swords"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#80CBC4" />
+
+        <TextView
+            android:id="@+id/tvCardDuelTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:text="CONFIGURAR DUELO"
+            android:textColor="@color/gold_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivSwordsIcon"
+            app:layout_constraintTop_toTopOf="@id/ivSwordsIcon" />
+
+        <TextView
+            android:id="@+id/tvCardDuelDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:text="Defina os nomes para a súmula da mesa"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivSwordsIcon"
+            app:layout_constraintTop_toBottomOf="@id/tvCardDuelTitle" />
+
+        <!-- ==================== SEÇÃO JOGADOR 1 ==================== -->
+        <TextView
+            android:id="@+id/tvPlayer1Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:drawablePadding="6dp"
+            android:text="Jogador 1:"
+            android:textColor="@color/gold_primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_person_outline"
+            app:drawableTint="@color/gold_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCardDuelDesc" />
+
+        <TextView
+            android:id="@+id/tvPlayer1Role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VOCÊ (DESAFIANTE)"
+            android:textColor="#80CBC4"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tvPlayer1Label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvPlayer1Label" />
+
+        <LinearLayout
+            android:id="@+id/llInputPlayer1"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input_field_dark"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPlayer1Label">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_profile_circle"
+                app:tint="#80CBC4" />
+
+            <EditText
+                android:id="@+id/etPlayer1Name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:background="@android:color/transparent"
+                android:hint="Seu nome"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:text="Gaudério Silva"
+                android:textColor="@color/white"
+                android:textColorHint="@color/text_gray"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Seletor de Emblema -->
+        <TextView
+            android:id="@+id/tvEmblemLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Emblema:"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/btnEmblemMedal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnEmblemMedal" />
+
+        <ImageButton
+            android:id="@+id/btnEmblemMedal"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_emblem_selected"
+            android:contentDescription="Emblema Medalha"
+            android:padding="6dp"
+            android:src="@drawable/ic_medal"
+            app:layout_constraintStart_toEndOf="@id/tvEmblemLabel"
+            app:layout_constraintTop_toBottomOf="@id/llInputPlayer1"
+            app:tint="@color/bg_dark_green" />
+
+        <ImageButton
+            android:id="@+id/btnEmblemFire"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_emblem_unselected"
+            android:contentDescription="Emblema Fogo"
+            android:padding="6dp"
+            android:src="@drawable/ic_fire"
+            app:layout_constraintBottom_toBottomOf="@id/btnEmblemMedal"
+            app:layout_constraintStart_toEndOf="@id/btnEmblemMedal"
+            app:layout_constraintTop_toTopOf="@id/btnEmblemMedal"
+            app:tint="@color/text_gray" />
+
+        <ImageButton
+            android:id="@+id/btnEmblemBolt"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_emblem_unselected"
+            android:contentDescription="Emblema Raio"
+            android:padding="6dp"
+            android:src="@drawable/ic_bolt"
+            app:layout_constraintBottom_toBottomOf="@id/btnEmblemMedal"
+            app:layout_constraintStart_toEndOf="@id/btnEmblemFire"
+            app:layout_constraintTop_toTopOf="@id/btnEmblemMedal"
+            app:tint="@color/text_gray" />
+
+        <!-- ==================== DIVISOR "VS" ==================== -->
+        <View
+            android:id="@+id/lineDividerLeft"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginEnd="12dp"
+            android:background="@color/border_subtle"
+            app:layout_constraintBottom_toBottomOf="@id/tvVsBadge"
+            app:layout_constraintEnd_toStartOf="@id/tvVsBadge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvVsBadge" />
+
+        <TextView
+            android:id="@+id/tvVsBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/bg_vs_pill"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="3dp"
+            android:text="VS"
+            android:textColor="@color/gold_primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnEmblemMedal" />
+
+        <View
+            android:id="@+id/lineDividerRight"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="12dp"
+            android:background="@color/border_subtle"
+            app:layout_constraintBottom_toBottomOf="@id/tvVsBadge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvVsBadge"
+            app:layout_constraintTop_toTopOf="@id/tvVsBadge" />
+
+        <!-- ==================== SEÇÃO JOGADOR 2 ==================== -->
+        <TextView
+            android:id="@+id/tvPlayer2Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="6dp"
+            android:text="Jogador 2:"
+            android:textColor="@color/gold_primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_person_outline"
+            app:drawableTint="@color/gold_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvVsBadge" />
+
+        <TextView
+            android:id="@+id/tvPlayer2Role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OPONENTE"
+            android:textColor="@color/text_gray"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tvPlayer2Label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvPlayer2Label" />
+
+        <LinearLayout
+            android:id="@+id/llInputPlayer2"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input_field_dark"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPlayer2Label">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_gamepad"
+                app:tint="#EF9A9A" />
+
+            <EditText
+                android:id="@+id/etPlayer2Name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:background="@android:color/transparent"
+                android:hint="Nome do oponente"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:text="Marreco do Truco"
+                android:textColor="@color/white"
+                android:textColorHint="@color/text_gray"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Seletor de Dificuldade -->
+        <TextView
+            android:id="@+id/tvDifficultyLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dificuldade:"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/btnDiffMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnDiffMedium" />
+
+        <TextView
+            android:id="@+id/btnDiffEasy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_tag_green"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="Fácil"
+            android:textColor="#80CBC4"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/tvDifficultyLabel"
+            app:layout_constraintTop_toBottomOf="@id/llInputPlayer2" />
+
+        <TextView
+            android:id="@+id/btnDiffMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_diff_medium_selected"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="Médio"
+            android:textColor="@color/gold_bright"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/btnDiffEasy"
+            app:layout_constraintStart_toEndOf="@id/btnDiffEasy"
+            app:layout_constraintTop_toTopOf="@id/btnDiffEasy" />
+
+        <TextView
+            android:id="@+id/btnDiffMaster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_diff_master"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="Mestre"
+            android:textColor="#EF9A9A"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/btnDiffEasy"
+            app:layout_constraintStart_toEndOf="@id/btnDiffMedium"
+            app:layout_constraintTop_toTopOf="@id/btnDiffEasy" />
+
+        <!-- ==================== META DE VITÓRIA (12 TENTOS) ==================== -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/boxVictoryGoal"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/bg_input_field_dark"
+            android:paddingHorizontal="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnDiffEasy">
+
+            <ImageView
+                android:id="@+id/ivGoalIcon"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_cards"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/gold_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Meta de Vitória:"
+                android:textColor="@color/text_gray"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivGoalIcon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvVictoryGoalValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 Tentos"
+                android:textColor="@color/gold_bright"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- ==================== BOTÃO CONFIRMAR ==================== -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnConfirmDuel"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/bg_button_gold_gradient"
+            android:drawableEnd="@drawable/ic_play_arrow"
+            android:drawablePadding="-24dp"
+            android:elevation="6dp"
+            android:paddingStart="40dp"
+            android:paddingEnd="84dp"
+            android:text="CONFIRMAR"
+            android:textColor="@color/bg_dark_green"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/boxVictoryGoal" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ==================== BARRA INFERIOR DE MANILHAS ==================== -->
+    <LinearLayout
+        android:id="@+id/barManilhasReference"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_pill_dark"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardDuelSetup">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MANILHAS:"
+            android:textColor="@color/text_gray"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="4 ♣\nZap"
+            android:textColor="@color/gold_primary"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="7 ♥\nCopas"
+            android:textColor="#EF9A9A"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:gravity="center"
+            android:text="A ♠\nEspadilha"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:gravity="center"
+            android:text="7 ♦ Pica-\nfumo"
+            android:textColor="@color/gold_primary"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- ==================== RODAPÉ INSTITUCIONAL ==================== -->
+    <TextView
+        android:id="@+id/tvFooterFederation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:letterSpacing="0.06"
+        android:text="FEDERAÇÃO BRASILEIRA DE TRUCO • CLUBE TRADICIONAL"
+        android:textColor="#607D6B"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barManilhasReference" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

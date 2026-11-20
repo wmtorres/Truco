@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="bg_dark_green">#0A1F13</color>
+    <color name="bg_center_green">#123822</color>
+    <color name="bg_card_surface">#112A1C</color>
+    <color name="bg_bottom_nav">#08170E</color>
+
+    <color name="gold_primary">#E5B84B</color>
+    <color name="gold_bright">#FFD54F</color>
+    <color name="gold_dark">#B28725</color>
+
+    <color name="border_subtle">#234732</color>
+    <color name="text_gray">#A5B8AD</color>
+    <color name="white">#FFFFFF</color>
+</resources>

@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main_gradient">
+
+    <!-- ==================== MARCAS D'ÁGUA DE FUNDO (NAIPES) ==================== -->
+    <ImageView
+        android:id="@+id/ivWatermarkSpade"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginEnd="-40dp"
+        android:alpha="0.06"
+        android:src="@drawable/ic_suit_spade"
+        app:layout_constraintBottom_toBottomOf="@id/cardsShowcaseContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cardsShowcaseContainer"
+        app:tint="@color/white" />
+
+    <ImageView
+        android:id="@+id/ivWatermarkDiamond"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginEnd="-20dp"
+        android:layout_marginBottom="-20dp"
+        android:alpha="0.06"
+        android:rotation="-15"
+        android:src="@drawable/ic_suit_diamond"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
+
+    <!-- ==================== BARRA SUPERIOR (HEADER) ==================== -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="#33000000"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnProfileIcon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Perfil"
+            android:src="@drawable/ic_profile_circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gold_primary" />
+
+        <ImageView
+            android:id="@+id/ivAppLogo"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_cards"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnProfileIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gold_primary" />
+
+        <TextView
+            android:id="@+id/tvAppTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:letterSpacing="0.04"
+            android:text="TRUCO BRASIL"
+            android:textColor="@color/gold_primary"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivAppLogo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/llCoinsContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_pill_dark"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnAddCoins"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_coins"
+                app:tint="@color/gold_primary" />
+
+            <TextView
+                android:id="@+id/tvCoinsBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="45.200"
+                android:textColor="@color/gold_bright"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnAddCoins"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/bg_circle_outline"
+            android:contentDescription="Adicionar fichas"
+            android:src="@drawable/ic_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#FF8A80" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ==================== TÍTULO CENTRAL E TEMPORADA ==================== -->
+    <TextView
+        android:id="@+id/tvSeasonPill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bg_pill_gold_outline"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="5dp"
+        android:text="★   TEMPORADA NACIONAL 2025   ★"
+        android:textColor="@color/gold_primary"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout" />
+
+    <TextView
+        android:id="@+id/tvMainBannerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:shadowColor="#99000000"
+        android:shadowDx="0"
+        android:shadowDy="4"
+        android:shadowRadius="8"
+        android:text="JOGO DE TRUCO"
+        android:textColor="@color/gold_bright"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSeasonPill" />
+
+    <LinearLayout
+        android:id="@+id/llSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMainBannerTitle">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="O Clássico Carteado Brasileiro • "
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Peça Seis, Nove e Doze!"
+            android:textColor="@color/gold_bright"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- ==================== VITRINE DE CARTAS NATIVA (FUNDO TRANSPARENTE) ==================== -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardsShowcaseContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toTopOf="@id/btnPlayNow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llSubtitle">
+
+        <!-- 1. CARTA: A VIRA (3 de Copas) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardVira"
+            android:layout_width="76dp"
+            android:layout_height="112dp"
+            android:layout_marginEnd="-18dp"
+            android:rotation="-12"
+            app:cardBackgroundColor="#FAF8F2"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cardZape"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/gold_primary"
+            app:strokeWidth="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="4dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3 ♥  A Vira"
+                    android:textColor="#C62828"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="♥"
+                    android:textColor="#C62828"
+                    android:textSize="28sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_badge_gold"
+                    android:gravity="center"
+                    android:paddingVertical="2dp"
+                    android:text="MANILHA"
+                    android:textColor="@color/bg_dark_green"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 2. CARTA: ZAPE (4 de Paus) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardZape"
+            android:layout_width="78dp"
+            android:layout_height="116dp"
+            android:layout_marginEnd="-16dp"
+            android:layout_marginBottom="8dp"
+            android:rotation="-6"
+            app:cardBackgroundColor="#FAF8F2"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cardCopas"
+            app:layout_constraintStart_toEndOf="@id/cardVira"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/gold_primary"
+            app:strokeWidth="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="4dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4 ♣"
+                    android:textColor="#1A1A1A"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="♣"
+                    android:textColor="#1A1A1A"
+                    android:textSize="32sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_badge_gold"
+                    android:gravity="center"
+                    android:paddingVertical="2dp"
+                    android:text="ZAPE"
+                    android:textColor="@color/bg_dark_green"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 3. CARTA: COPAS (7 de Copas) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardCopas"
+            android:layout_width="80dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="-16dp"
+            android:layout_marginBottom="14dp"
+            app:cardBackgroundColor="#FAF8F2"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cardEspadilha"
+            app:layout_constraintStart_toEndOf="@id/cardZape"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/gold_primary"
+            app:strokeWidth="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="4dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="7 ♥"
+                    android:textColor="#C62828"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="♥"
+                    android:textColor="#C62828"
+                    android:textSize="34sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_badge_gold"
+                    android:gravity="center"
+                    android:paddingVertical="2dp"
+                    android:text="COPAS"
+                    android:textColor="@color/bg_dark_green"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 4. CARTA: ESPADILHA (Ás de Espadas) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardEspadilha"
+            android:layout_width="78dp"
+            android:layout_height="116dp"
+            android:layout_marginEnd="-18dp"
+            android:layout_marginBottom="8dp"
+            android:rotation="6"
+            app:cardBackgroundColor="#FAF8F2"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cardOuros"
+            app:layout_constraintStart_toEndOf="@id/cardCopas"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/gold_primary"
+            app:strokeWidth="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="4dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="A ♠"
+                    android:textColor="#1A1A1A"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="♠"
+                    android:textColor="#1A1A1A"
+                    android:textSize="34sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_badge_gold"
+                    android:gravity="center"
+                    android:paddingVertical="2dp"
+                    android:text="ESPADILHA"
+                    android:textColor="@color/bg_dark_green"
+                    android:textSize="7.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 5. CARTA: OUROS (7 de Ouros) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardOuros"
+            android:layout_width="76dp"
+            android:layout_height="112dp"
+            android:rotation="12"
+            app:cardBackgroundColor="#FAF8F2"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cardEspadilha"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/gold_primary"
+            app:strokeWidth="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="4dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="7 ♦"
+                    android:textColor="#C62828"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="♦"
+                    android:textColor="#C62828"
+                    android:textSize="32sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_badge_gold"
+                    android:gravity="center"
+                    android:paddingVertical="2dp"
+                    android:text="OUROS"
+                    android:textColor="@color/bg_dark_green"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ==================== BOTÃO PRINCIPAL: JOGAR AGORA ==================== -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPlayNow"
+        android:layout_width="0dp"
+        android:layout_height="62dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_button_gold_gradient"
+        android:drawableStart="@drawable/ic_play_circle"
+        android:drawablePadding="-28dp"
+        android:elevation="8dp"
+        android:paddingStart="72dp"
+        android:paddingEnd="44dp"
+        android:text="JOGAR AGORA"
+        android:textColor="@color/bg_dark_green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tvOnlinePlayers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvOnlinePlayers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:drawablePadding="8dp"
+        android:text="14.820 jogadores na mesa agora"
+        android:textColor="@color/text_gray"
+        android:textSize="12sp"
+        app:drawableStartCompat="@drawable/ic_dot_green"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- ==================== NAVEGAÇÃO INFERIOR CORRIGIDA ==================== -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="76dp"
+        android:background="@color/bg_bottom_nav"
+        app:itemIconSize="22dp"
+        app:itemIconTint="@color/selector_bottom_nav"
+        app:itemPaddingTop="10dp"
+        app:itemPaddingBottom="10dp"
+        app:itemTextColor="@color/selector_bottom_nav"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
